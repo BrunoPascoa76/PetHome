@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Área reservada</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        .main {
+            padding-top: 80px
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand align-items-center" href="index.html"><img src="Images/Logo.jpeg" style="height:40px; width:auto" /></a>
+            <span class="navbar-text text-dark me-auto ms-2">Bem vindo, <span class="doctor_name fw-bold">placeholder</span></span>
+            <a role="button" href="index.html" class="btn btn-danger log_out"><i class="fa fa-sign-out"></i> Sair</a>
+        </div>
+    </nav>
+
+    <div class="container-fluid main">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="search-input" placeholder="Nome do animal" aria-label="Nome do animal" aria-describedby="button-addon2">
+            <button class="btn btn-primary" type="button" id="search"><i class="fa fa-search"></i></button>
+        </div>
+        <!-- ko if:accounts().length > 0 -->
+        <div class="mt-2" data-bind="foreach:accounts()">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button justify-content-center" type="button" data-bs-toggle="collapse" data-bind="attr:{'data-bs-target' : '#accordeon_'+ petName}" aria-expanded="true" aria-controls="collapseOne">
+                        <span data-bind="text:petName"></span>
+                    </button>
+                </h2>
+                <div data-bind="attr:{'id' : 'accordeon_'+ petName}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body" style="background-color:lightcyan">
+                        <table class="table table-striped mt-2 bg-white">
+                            <thead>
+                                <tr><td class=""><span class="m-auto">Dados pessoais</span></td></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Nome do utilizador:</td><td data-bind="text:humanName"></td></tr>
+                                <tr><td>Email do utilizador:</td><td data-bind="text:humanEmail"></td></tr>
+                                <tr><td>Nome do animal:</td><td data-bind="text:petName"></td></tr>
+                                <tr><td>Idade do animal:</td><td data-bind="text:petAge"></td></tr>
+                                <tr><td>Espécie do animal:</td><td data-bind="text:petSpecie"></td></tr>
+                                <tr><td>Raça do animal:</td><td data-bind="text:petRace"></td></tr>
+                                <tr><td>Sexo do animal:</td><td data-bind="text:petSex"></td></tr>
+                                <tr><td>Tipo de subscrição:</td><td data-bind="text:subscription"></td></tr>
+                                <tr><td>Tipo de alimentação:</td><td data-bind="text:foodType"></td></tr>
+                                <tr><td>Vacinas em falta:</td><td><button type="button" class="btn btn-primary vaccine_btn" data-bind="attr:{'value': petName}" data-bs-toggle="modal" data-bs-target="#vaccine_modal">Ver</button></td></tr>
+                                <tr><td>Diagnóstico:</td><td><button type="button" class="btn btn-primary diagnostic_btn" data-bind="attr:{'value': petName}" data-bs-toggle="modal" data-bs-target="#diagnostic_modal">Ver</button></td></tr>
+                                <tr>
+                                    <td>Próxima consulta:</td>
+                                    <td>
+                                        <input data-bind="attr:{'id' : 'date_'+petName,'min':$parent.present()}, value:dia," type="date"/>
+                                        <input type="time" class="ms-1 me-1" data-bind="attr:{'id':'time_'+petName}, value:hora" min="08:00:00" max="20:00:00"/>
+                                        <button type="button" class="btn btn-primary schedule_btn" data-bind="attr:{'value': petName}"><i class="fa fa-clock-o"></i>Agendar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ko-->
+    </div>
+
+    <div class="modal fade" id="vaccine_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Vacinas em falta:</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="add-input" placeholder="Adicionar vacina" aria-label="Vacina em falta" aria-describedby="button-addon2">
+                        <button class="btn btn-primary" type="button" id="add_btn"><i class="fa fa-plus"></i></button>
+                    </div>
+                    <!--ko if:vaccines().length>0 -->
+                    <fieldset class="border rounded mt-1">
+                        <div class="m-2">
+                            <!--ko foreach:vaccines-->
+                            <div class="row mb-2">
+                                <div class="col-9" data-bind="text:$data"></div>
+                                <div class="col-3">
+                                    <button type="button" class="btn btn-danger float-end btn-sm remove_btn" data-bind="value:$data"><i class="fa fa-minus-circle"></i> Remover</button>
+                                </div>
+                            </div>
+                            <!--/ko-->
+                        </div>
+                    </fieldset>
+                    <!--/ko-->
+                    <!--ko if:vaccines().length===0-->
+                    <fieldset class="border rounded mt-1"><div class="m-1">Não existem vacinas em falta.</div></fieldset>
+                    <!--/ko-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="diagnostic_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Diagnóstico</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="add-input-2" placeholder="Adicionar diagnóstico" aria-label="diagnóstico" aria-describedby="button-addon2">
+                        <button class="btn btn-primary" type="button" id="add_btn_2"><i class="fa fa-plus"></i></button>
+                    </div>
+                    <!--ko if:diagnostics().length>0 -->
+                    <fieldset class="border rounded mt-1">
+                        <div class="m-2">
+                            <!--ko foreach:diagnostics-->
+                            <div class="row mb-2">
+                                <div class="col-9" data-bind="text:$data"></div>
+                                <div class="col-3">
+                                    <button type="button" class="btn btn-danger float-end btn-sm remove_btn_2" data-bind="value:$data"><i class="fa fa-minus-circle"></i> Remover</button>
+                                </div>
+                            </div>
+                            <!--/ko-->
+                        </div>
+                    </fieldset>
+                    <!--/ko-->
+                    <!--ko if:diagnostics().length===0-->
+                    <fieldset class="border rounded mt-1"><div class="m-1">Sem registos.</div></fieldset>
+                    <!--/ko-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/knockout@3.5.1/build/output/knockout-latest.min.js"></script>
+    <script src="JavaScript/client_search.js"></script>
+    <script>$("a").hover(function () { $(this).animate({ margin: -1, width: "+=2", height: "+=2" }); }, function () { $(this).animate({ margin: 0, width: "-=2", height: "-=2" }); })</script>
+</body>
+</html>

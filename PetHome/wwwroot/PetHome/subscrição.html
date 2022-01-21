@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Selecionar subscrição</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <style>
+        body {
+            padding-top: 70px;
+            padding-bottom: 265px
+        }
+        td {
+            border: 1px solid #000000;
+            min-width: 140px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand align-items-center" href="index.html"><img src="Images/Logo.jpeg" style="height:40px; width:auto" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="alimentação.html"><i class="fa fa-cutlery" aria-hidden="true"></i> Alimentação</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> Marcações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consultas.html"><i class="fa fa-stethoscope" aria-hidden="true"></i> Consultas</a>
+                    </li>
+                    <li class="nav-item dropdown d-none">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-user"></i> <span class="drop_name">aaa</span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="ficha.html"><i class="fa fa-paw" aria-hidden="true"></i> Ficha do animal</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="log_out()"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="btn btn-primary log d-block" href="login.html" role="button"><i class="fa fa-user" aria-hidden="true"></i> Sign up / Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main container-fluid mt-2">
+        <div class="table-responsive mb-2" tabindex="0">
+            <table class="table table-striped">
+                <caption><span class="text-dark small">*estadia no hotel limitada a 2 semanas por cada 12 meses de subscrição.</span></caption>
+                <thead>
+                    <tr>
+                        <td class="text-start">Subscrições</td>
+                        <td class="text-center">Alimentação</td>
+                        <td class="text-center">Consultas ao domicílio</td>
+                        <td class="text-center">Consultas à distância</td>
+                        <td class="text-center">Tosquia e estadia no hotel*</td>
+                        <td class="text-end">Preço</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-start">Plano alimentação</td>
+                        <td class="text-center"><span class="text-success"><i class="fa fa-check"></i></span></td>
+                        <td class="text-center"><span class="text-danger"><i class="fa fa-times"></i></span></td>
+                        <td class="text-center"><span class="text-danger"><i class="fa fa-times"></i></span></td>
+                        <td class="text-center"><span class="text-danger"><i class="fa fa-times"></i></span></td>
+                        <td class="text-end">19,99<i class="fa fa-eur"></i> p/ mês</td>
+                    </tr>
+                    <tr>
+                        <td class="text-start">Plano melhorado</td>
+                        <td class="text-center"><span class="text-success"><i class="fa fa-check"></i></span></td>
+                        <td class="text-center"><span class="text-success"><i class="fa fa-check"></i></span></td>
+                        <td class="text-center"><span class="text-success"><i class="fa fa-check"></i></span></td>
+                        <td class="text-center"><span class="text-danger"><i class="fa fa-times"></i></span></td>
+                        <td class="text-end">39,99<i class="fa fa-eur"></i> p/ mês</td>
+                    </tr>
+                    <tr>
+                        <td class="text-start">Plano completo</td>
+                        <td class="text-center"><span class="text-success"><i class="fa fa-check"></i></span></td>
+                        <td class="text-center"><span class="text-success"><i class="fa fa-check"></i></span></td>
+                        <td class="text-center"><span class="text-success"><i class="fa fa-check"></i></span></td>
+                        <td class="text-center"><span class="text-success"><i class="fa fa-check"></i></span></td>
+                        <td class="text-end">49,99<i class="fa fa-eur"></i> p/ mês</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Plano alimentação
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="row mb-2">
+                            <div class="col-10">Plano básico que inclui o serviço de entrega de alimentos ao domicílio.</div>
+                            <div class="col-2"><button type="button" value="plano_alimentação" class="btn btn-primary subscription">Aderir</button></div>
+                            <div class="row mt-1"><img class="img-fluid w-100" src="Images/puppy-food.jpg" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Plano melhorado
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="row mb-2">
+                            <div class="col-10">Plano avnçado que inclui alimentação e consultas ao domicílio e por videoconferência gratuitas</div>
+                            <div class="col-2"><button type="button" value="plano_melhorado" class="btn btn-primary subscription">Aderir</button></div>
+                            <div class="row mt-1"><img class="img-fluid w-100" src="Images/dog-vet.jpg" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Plano completo
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="row mb-2">
+                            <div class="col-10">Plano completo que inclui todos os serviços PetHome numa única subscrição mensal.</div>
+                            <div class="col-2 "><button type="button" value="plano_completo" class="btn btn-primary subscription">Aderir</button></div>
+                            <div class="row mt-1"><img class="img-fluid w-100" src="Images/kitten-spa.jpg" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <small class="fixed-bottom small">Os métodos de pagamento serão disponibilizados por email.</small>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/knockout@3.5.1/build/output/knockout-latest.min.js"></script>
+    <script src="JavaScript/is_logged_in.js"></script>
+    <script src="JavaScript/subscrição.js"></script>
+    <script>$("a").hover(function () { $(this).animate({ margin: -1, width: "+=2", height: "+=2" }); }, function () { $(this).animate({ margin: 0, width: "-=2", height: "-=2" }); })</script>
+</body>
+</html>
