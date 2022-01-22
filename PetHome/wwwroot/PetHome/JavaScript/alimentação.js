@@ -10,7 +10,6 @@
             $(this).text(texto)
         })
     }
-
     var status = localStorage.getItem("is_logged_in")
     var timeleft = 4
     if (status == "0" || status==null) {

@@ -42,10 +42,14 @@ $(document).ready(function () {
         diagnostics = diagnostics.slice(-5) //obter últimos 5 diagnósticos (para não ficar muito cheio)
         viewmodel.diagnostics(diagnostics)
     }
-
     var date = localStorage.getItem("schedule_date_" + pet)
     var hour = localStorage.getItem("schedule_hour_" + pet)
-    $("#schedule").text(date + ", às " + hour)
+    if (date != null) {
+        $("#schedule").text(date + ", às " + hour)
+    }
+    else {
+        $("#schedule").text("Nenhuma")
+    }
 })
 
 function sub_redirect() {
