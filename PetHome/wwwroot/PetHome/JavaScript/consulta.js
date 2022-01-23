@@ -26,8 +26,13 @@ $(document).ready(function () {
 
     $("#calendar").calendar({
         onClickDate: function (date) {
-            date = String(date).split()
-            $("#calendar")
+            date = String(date).split(" ")
+            $("#calendar").updateCalendarOptions({
+                date: monthMap[date[1]] + "/" + date[2]+"/"+date[3]
+            })
+            date= date[2]+"/"+monthMap[date[1]]+"/"+date[3]
+            viewModel.date(date)
+            $("#staticBackdrop").modal("show")
         }
     })
 var petName = localStorage.getItem("current_account")
