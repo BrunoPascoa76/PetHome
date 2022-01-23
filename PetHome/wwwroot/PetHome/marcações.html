@@ -71,7 +71,7 @@
                 </div>
                 <div class="row text-center">            
                     <div class="col"><button type="button" class="btn btn-success mr-3" id="tosquia_btn"><i class="fa fa-plus-circle"></i>Adicionar</button>
-                    <button type="button" class="btn btn-danger mr-3"><i class="fa fa-minus-circle">Remover</i></button></div>
+                    <button type="button" class="btn btn-danger mr-3 tosquia_remove"><i class="fa fa-minus-circle">Remover</i></button></div>
                 </div>
             </div>
             <div class="hotel_div" data-bind="visible: selected()=='2'">
@@ -86,7 +86,8 @@
                     </div>
                 </div>
                 <div class="row text-center">
-                    <div class="col"><button type="button" class="btn btn-success me-2" id="hotel_btn"><i class="fa fa-plus-circle"></i>Adicionar</button><button type="button" class="btn btn-danger"><i class="fa fa-minus-circle">Remover</i></button></div>
+                    <div class="col"><button type="button" class="btn btn-success me-2" id="hotel_btn"><i class="fa fa-plus-circle"></i>Adicionar</button>
+                    <button type="button" class="btn btn-danger hotel_remove"><i class="fa fa-minus-circle">Remover</i></button></div>
                 </div>
             </div>
         </div>
@@ -186,6 +187,14 @@
                 }
                 console.log()
             }
+            $(".tosquia_remove").click(function () {
+                localStorage.removeItem("tosquia_" + pet)
+                update()
+            })
+            $(".hotel_remove").click(function () {
+                localStorage.removeItem("hotel_" + pet)
+                update()
+            })
         })
     </script>
     <script>$("a").hover(function () { $(this).animate({ margin: -1, width: "+=2", height: "+=2" }); }, function () { $(this).animate({ margin: 0, width: "-=2", height: "-=2" }); })</script>
