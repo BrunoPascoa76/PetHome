@@ -61,33 +61,33 @@
             <div class="tosquia_div" data-bind="visible: selected()=='1'">
                 <div class="row mb-3 justify-content-around">
                     <div class="col-6 text-end">
-                        <label for=" tosquia_day" class="form-label">Escolher o dia:</label>
+                        <label for=" tosquia_day" class="form-label"><i class="fa fa-calendar"></i> Escolher o dia:</label>
                         <input type="date" id="tosquia_day" data-bind="value:tosquia_day" class="w-75" />
                     </div>
                     <div class="col-6">
-                        <label for=" tosquia_hour" class="form-label">Escolher a hora:</label>
+                        <label for=" tosquia_hour" class="form-label"><i class="fa fa-clock-o"></i> Escolher a hora:</label>
                         <input type="time" id="tosquia_hour" data-bind="value:tosquia_hour" class="w-75" />
                     </div>
                 </div>
                 <div class="row text-center">            
-                    <div class="col"><button type="button" class="btn btn-success mr-3" id="tosquia_btn"><i class="fa fa-plus-circle"></i>Adicionar</button>
-                    <button type="button" class="btn btn-danger mr-3 tosquia_remove"><i class="fa fa-minus-circle">Remover</i></button></div>
+                    <div class="col"><button type="button" class="btn btn-success mr-3" id="tosquia_btn"><i class="fa fa-plus-circle"></i> Adicionar</button>
+                    <button type="button" class="btn btn-danger mr-3 tosquia_remove"><i class="fa fa-minus-circle"> Remover</i></button></div>
                 </div>
             </div>
             <div class="hotel_div" data-bind="visible: selected()=='2'">
                 <div class="row mb-3 justify-content-around">
                     <div class="col-6 text-end">
-                        <label for=" hotel_checkin" class="form-label">Selecionar check-in:</label>
+                        <label for=" hotel_checkin" class="form-label"><i class="fa fa-sign-in"></i> Selecionar check-in:</label>
                         <input type="date" id="hotel_checkin" data-bind="value:hotel_checkin"/>
                     </div>
                     <div class="col-6">
-                        <label for=" hotel_checkout" class="form-label">Selecionar check-out:</label>
+                        <label for=" hotel_checkout" class="form-label"><i class="fa fa-sign-out"></i> Selecionar check-out:</label>
                         <input type="date" id="hotel_checkout" data-bind="value:hotel_checkout"/>
                     </div>
                 </div>
                 <div class="row text-center">
-                    <div class="col"><button type="button" class="btn btn-success me-2" id="hotel_btn"><i class="fa fa-plus-circle"></i>Adicionar</button>
-                    <button type="button" class="btn btn-danger hotel_remove"><i class="fa fa-minus-circle">Remover</i></button></div>
+                    <div class="col"><button type="button" class="btn btn-success me-2" id="hotel_btn"><i class="fa fa-plus-circle"></i> Adicionar</button>
+                    <button type="button" class="btn btn-danger hotel_remove"><i class="fa fa-minus-circle"> Remover</i></button></div>
                 </div>
             </div>
         </div>

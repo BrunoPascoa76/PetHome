@@ -54,7 +54,7 @@
         <h2 class="text-danger d-none" id="redirect_warning"> Erro! Precisa realizar login. Redirecionando em <span id="redirect_time">5</span> segundos...</h2>
         <div class="container-fluid d-none" id="resto">
             <div id="Cão_div" class="d-none">
-                <h3>Alimentação para cães:</h3>
+                <h3><i class="fa fa-paw"></i> Alimentação para cães:</h3>
                 <div class="row">
                     <div class="col-12 d-flex justify-content-center">
                         <div class="card" style="width: 18rem;">
@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div id="Gato_div" class="d-none">
-                <h3>Alimentação para gatos:</h3>
+                <h3><i class="fa fa-paw"></i> Alimentação para gatos:</h3>
                 <div class="row">
                     <div class="col-12 d-flex justify-content-center">
                         <div class="card" style="width: 18rem;">
@@ -114,7 +114,7 @@
                 </div>
             </div>
             <div id="Pássaro_div" class="d-none">
-                <h3>Alimentação para pássaros:</h3>
+                <h3><i class="fa fa-paw"></i> Alimentação para pássaros:</h3>
                 <div class="row">
                     <div class="col-12 d-flex justify-content-center">
                         <div class="card" style="width: 18rem;">
@@ -129,7 +129,7 @@
                 </div>
             </div>
             <div id="Peixe_div" class="d-none">
-                <h3>Alimentação para peixes:</h3>
+                <h3><i class="fa fa-paw"></i> Alimentação para peixes:</h3>
                 <div class="row">
                     <div class="col-12 d-flex justify-content-center">
                         <div class="card" style="width: 18rem;">
@@ -153,6 +153,10 @@
     <script src="https://cdn.jsdelivr.net/npm/knockout@3.5.1/build/output/knockout-latest.min.js"></script>
     <script src="JavaScript/is_logged_in.js"></script>
     <script src="JavaScript/alimentação.js"></script>
-    <script>$("a").hover(function () { $(this).animate({ margin: -1, width: "+=2", height: "+=2" }); }, function () { $(this).animate({ margin: 0, width: "-=2", height: "-=2" }); })</script>
+    <script>
+        $("a").hover(function () { $(this).animate({ margin: -1, width: "+=2", height: "+=2" }); }, function () { $(this).animate({ margin: 0, width: "-=2", height: "-=2" }); })
+        $(".aderir").hover(function () { $(this).animate({ margin: -3, width: "+=6", height: "+=6" }); }, function () { $(this).animate({ margin: 0, width: "-=6", height: "-=6" }); })
+        $(".card-img-top").hover(function () { $(this).animate({ margin: -5, width: "+=10", height: "+=10" }); }, function () { $(this).animate({ margin: 0, width: "-=10", height: "-=10" }); })
+    </script>
 </body>
 </html>

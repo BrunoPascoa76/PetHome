@@ -31,14 +31,14 @@
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button justify-content-center" type="button" data-bs-toggle="collapse" data-bind="attr:{'data-bs-target' : '#accordeon_'+ petName}" aria-expanded="true" aria-controls="collapseOne">
-                        <span data-bind="text:petName"></span>
+                        <i class="fa fa-paw"></i><span class="ms-1" data-bind="text:petName"></span>
                     </button>
                 </h2>
                 <div data-bind="attr:{'id' : 'accordeon_'+ petName}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body" style="background-color:lightcyan">
                         <table class="table table-striped mt-2 bg-white">
                             <thead>
-                                <tr><td class=""><span class="m-auto">Dados pessoais</span></td></tr>
+                                <tr><td><i class="fa fa-list"></i> Dados pessoais</td></tr>
                             </thead>
                             <tbody>
                                 <tr><td>Nome do utilizador:</td><td data-bind="text:humanName"></td></tr>
@@ -55,9 +55,15 @@
                                 <tr>
                                     <td>Próxima consulta:</td>
                                     <td>
-                                        <input data-bind="attr:{'id' : 'date_'+petName,'min':$parent.present()}, value:dia," type="date"/>
-                                        <input type="time" class="ms-1 me-1" data-bind="attr:{'id':'time_'+petName}, value:hora" min="08:00:00" max="20:00:00"/>
-                                        <button type="button" class="btn btn-primary schedule_btn" data-bind="attr:{'value': petName}"><i class="fa fa-clock-o"></i>Agendar</button>
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <input data-bind="attr:{'id' : 'date_'+petName,'min':$parent.present()}, value:dia," type="date" />
+                                                <input type="time" data-bind="attr:{'id':'time_'+petName}, value:hora" min="08:00:00" max="20:00:00" />
+                                            </div>
+                                            <div class="col-4">
+                                                <button type="button" class="btn btn-primary schedule_btn" data-bind="attr:{'value': petName}"><i class="fa fa-clock-o"></i>Agendar</button>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
