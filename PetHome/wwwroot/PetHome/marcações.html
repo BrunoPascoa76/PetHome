@@ -159,16 +159,18 @@
                     alert("Erro! Selecione um dia e uma hora.")
                 }
                 else {
-                    localStorage.setItem("tosquia_"+pet,[viewModel.tosquia_day(),viewModel.tosquia_hour()])
+                    localStorage.setItem("tosquia_" + pet, [viewModel.tosquia_day(), viewModel.tosquia_hour()])
+                    location.href="index.html"
                 }
             })
 
             $("#hotel_btn").click(function () {
                 if (viewModel.hotel_checkin() == undefined || viewModel.hotel_checkout() == undefined) {
-                    alert("Erro! Selecione um dia e uma hora.")
+                    alert("Erro! Selecione um dia de check-in e um dia de check-out.")
                 }
                 else {
                     localStorage.setItem("hotel_" + pet, [viewModel.hotel_checkin(), viewModel.hotel_checkout()])
+                    location.href = "index.html"
                 }
             })
             
@@ -184,6 +186,7 @@
                 if (hotel != null) {
                     hotel = hotel.split(",")
                     viewModel.hotel_checkin(hotel[0])
+                    viewModel.hotel_checkout(hotel[1])
                 }
                 console.log()
             }

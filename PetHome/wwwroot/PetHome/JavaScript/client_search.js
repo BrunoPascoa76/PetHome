@@ -181,8 +181,14 @@ $(document).ready(function () {
         petName = $(this).val()
         var dia = $("#date_" + petName).val()
         var hora = $("#time_" + petName).val()
-        localStorage.setItem("schedule_date_" + petName, dia)
-        localStorage.setItem("schedule_hour_" + petName, hora)
+        if (dia == "" || hora == "") {
+            alert("Erro! Por favor escolha um dia e uma hora.")
+        }
+        else {
+            localStorage.setItem("schedule_date_" + petName, dia)
+            localStorage.setItem("schedule_hour_" + petName, hora)
+            alert("Consulta marcada com sucesso.")
+        }
     })
 })
 
